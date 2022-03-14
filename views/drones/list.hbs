@@ -1,17 +1,50 @@
-<h2>Available drones</h2>
+
+<h1 id="header">Available Drones :</h1>
+
+<div id="drone-profiles-row">
+
 {{#each drones}}
-<h3>{{this.name}}</h3>
-<h4>{{this.propellers}}</h4>
-<h4>{{this.maxSpeed}}</h4>
-<a href="/drones/{{this._id}}/edit">Edit</a>
+  <div id="drone-container">
+    <div id="drone-profile">
+       <div id="drone-img">
+           //how to add images to each profile card?
+           <h3>IMAGE</h3>
+           {{this.imagesArr}}
+       </div> 
+      <div id="drone-details">
 
-<form
+          {{this.img}}
 
-action="/drones/{{this._id}}/delete"
-method="post"> 
+        <h2 id="drone-name">
+        <span> {{this.name}} </span>
+        </h2>
+        <hr>
 
-<button type="submit">Delete</button>
+        <h3>
+          Propellers:  
+        <span>   {{this.propellers}} </span>
+        </h3>
 
-</form>
+        <h3>
+          Maximum Speed:  
+         <span> {{this.maxSpeed}} </span>
+        </h3>
 
+      </div>
+
+      <div id="form-edit-and-delete-button">
+
+        <a id="edit-button" href="/drones/{{this._id}}/edit">Edit</a>
+
+        <form action="/drones/{{this._id}}/delete" method="post">
+
+          <button id="delete-button" type="submit">Delete</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
 {{/each}}
+</div>
+<script type="text/javascript">getRandomImage(imagesArr, '/public/images/');</script>
